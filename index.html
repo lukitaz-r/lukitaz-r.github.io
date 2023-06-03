@@ -10,6 +10,12 @@
     <meta name="description" content="Luca Ramirez, Desarrollador Front-End y UX de Paginas Web, Pagina de Ejemplo, Boceto, Curriculum Vitae">
 </head>
 
+<link rel="stylesheet" href="src/css/base.css">
+<link rel="stylesheet" href="src/css/color.css">
+<link rel="stylesheet" href="src/css/great.css">
+<link rel="stylesheet" href="src/css/medium.css">
+<link rel="stylesheet" href="src/css/small.css">
+
 <body>
     <header>
         <h1>Luca Ramirez</h1>
@@ -17,7 +23,7 @@
     </header>
 
     <nav>
-        <ul>
+        <ul class="display-great">
             <li>CloudCoding</li>
             <li>Curriculum</li>
             <li>GitHub</li>
@@ -25,138 +31,140 @@
             <li>Servicios</li>
         </ul>
 
-        <select name="" id="">
-            <option value="">CloudCoding</option>
-            <option value="">Curriculum</option>
-            <option value="">GitHub</option>
-            <option value="">LinkedIn</option>
-            <option value="">Servicios</option>
+        <select class="display-small" name="nav-small" id="lista-desplegable-nav">
+            <option value="cloudcoding">CloudCoding</option>
+            <option value="curriculum">Curriculum</option>
+            <option value="github">GitHub</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="servicios">Servicios</option>
         </select>
     </nav>
-
-    <main>
-        <article>
-            <h3>Una Breve Descripción de Mí Persona</h3>
-            <p>Hola! Soy Luca Damian Ramirez, un programador, Diseñador y Desarrollador Web, muy dedicado y enfocado en su trabajo.</p>
-        </article>
-        <article id="curriculum">
-            <h3>Curriculum Vitae</h3>
+    
+    <div id="cuerpo-pagina">
+        <main>
+            <article>
+                <h3><strong>Una Breve Descripción de Mí Persona</strong></h3>
+                <p>Hola! Soy Luca Damian Ramirez, un programador, Diseñador y Desarrollador Web, muy dedicado y enfocado en su trabajo.</p>
+            </article>
+            <article id="curriculum">
+                <h3>Curriculum Vitae</h3>
+                <ul>
+                    <li>
+                        Nombres: Luca Damian
+                    </li>
+    
+                    <li>
+                        Apellido: Ramirez
+                    </li>
+    
+                    <li>
+                        Edad: 16
+                    </li>
+    
+                    <li>
+                        Nacionalidad: Argentino
+                    </li>
+    
+                    <li>
+                        Lugar de Nacimiento: Resistencia, Chaco, Argentina
+                    </li>
+                    
+                    <li>
+                        Lugar de Residencia: Barranqueras, Chaco, Argentina
+                    </li>
+    
+                    <li>
+                        Estado Civil: Soltero
+                    </li>
+    
+                    <li>
+                        DNI: 47.857.508
+                    </li>
+    
+                    <li>
+                        CUIL: 
+                    </li>
+    
+                    <li>
+                        Fecha de Nacimiento: 30/11/2006
+                    </li>
+    
+                    <li>
+                        Experiencia Laboral: Sin Experiencia mas que Proyectos Personales.
+                    </li>
+    
+                    <li>
+                        Estudios: 
+                        <ul>
+                            <li>
+                                Secundarios:
+                                <ul>
+                                    <li>Tecnicatura en Electronica (cursando)</li>
+                                </ul>
+                            </li>
+    
+                            <li>
+                                Autodidacta:
+                                <ul><li>Desarrollo, con mas de 3 años de Experiencia.</li></ul>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li>
+                        Cursos: Cursos de Programación, Diseño y Desarrollo Web.
+                        <ul>
+                          <li><a href="src/pdf/activate_certificate.pdf">CURSO DE INTRODUCCIÓN AL DESARROLLO WEB: HTML (1/2) - Universidad de Alicante (España) en colaboración con Google Actívate.</a></li>
+                        </ul>
+                    </li>
+    
+                    <li>
+                        Idiomas: Español (Nativo), Ingles (Avanzado)
+                    </li>
+    
+                    <li>
+                        Dominio de Lenguajes:
+                        <ul>
+                            <li>
+                                Avanzado:
+                                <ul>
+                                    <li>HTML5</li>
+                                    <li>Javascript</li>
+                                    <li>CSS3</li>
+                                    <li>Discord.js v14</li>
+                                    <li>Node.js</li>
+                                    <li>Git</li>
+                                    <li>GitHub</li>
+                                    <li>MongoDB</li>
+                                </ul>
+                            </li>
+    
+                            <li>
+                                Básico: 
+                                <ul>
+                                    <li>Python</li>
+                                    <li>PHP</li>
+                                    <li>SQL</li>
+                                    <li>C++</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </main>
+    
+        <aside>
+            <h3>Navegación</h3>
             <ul>
-                <li>
-                    Nombres: Luca Damian
-                </li>
-
-                <li>
-                    Apellido: Ramirez
-                </li>
-
-                <li>
-                    Edad: 16
-                </li>
-
-                <li>
-                    Nacionalidad: Argentino
-                </li>
-
-                <li>
-                    Lugar de Nacimiento: Resistencia, Chaco, Argentina
-                </li>
-                
-                <li>
-                    Lugar de Residencia: Barranqueras, Chaco, Argentina
-                </li>
-
-                <li>
-                    Estado Civil: Soltero
-                </li>
-
-                <li>
-                    DNI: 47.857.508
-                </li>
-
-                <li>
-                    CUIL: 
-                </li>
-
-                <li>
-                    Fecha de Nacimiento: 30/11/2006
-                </li>
-
-                <li>
-                    Experiencia Laboral: Sin Experiencia mas que Proyectos Personales.
-                </li>
-
-                <li>
-                    Estudios: 
-                    <ul>
-                        <li>
-                            Secundarios:
-                            <ul>
-                                <li>Tecnicatura en Electronica (cursando)</li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            Autodidacta:
-                            <ul><li>Desarrollo, con mas de 3 años de Experiencia.</li></ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    Cursos: Cursos de Programación, Diseño y Desarrollo Web.
-                    <ul>
-                      <li><a href="src/pdf/activate_certificate.pdf">Curso de Introducción al Desarrollo Web (1/2) - Universidad de Alicante (España) en colaboración con Google Actívate.</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    Idiomas: Español (Nativo), Ingles (Avanzado)
-                </li>
-
-                <li>
-                    Dominio de Lenguajes:
-                    <ul>
-                        <li>
-                            Avanzado:
-                            <ul>
-                                <li>HTML5</li>
-                                <li>Javascript</li>
-                                <li>CSS3</li>
-                                <li>Discord.js v14</li>
-                                <li>Node.js</li>
-                                <li>Git</li>
-                                <li>GitHub</li>
-                                <li>MongoDB</li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            Básico: 
-                            <ul>
-                                <li>Python</li>
-                                <li>PHP</li>
-                                <li>SQL</li>
-                                <li>C++</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                <li>Curriculum</li>
+                <li>Nombre y Apellido</li>
+                <li>DNI</li>
+                <li>Estudios</li>
+                <li>Cursos</li>
+                <li>Dominio de Lenguajes (Coding)</li>
             </ul>
-        </article>
-    </main>
-
-    <aside>
-        <h3>Navegación</h3>
-        <ul>
-            <li>Curriculum</li>
-            <li>Nombre y Apellido</li>
-            <li>DNI</li>
-            <li>Estudios</li>
-            <li>Cursos</li>
-            <li>Dominio de Lenguajes (Coding)</li>
-        </ul>
-    </aside>
+        </aside>
+    </div>
 
     <footer>
         <p>Developed By: Luca Ramirez</h4>

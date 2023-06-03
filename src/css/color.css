@@ -1,0 +1,40 @@
+:root {
+    --color-primario: #D9B5FC;
+    --fondo: #0B1147;
+    --header: #1D277C;
+    --header-text: #EDDDFE;
+    --footer: #1D277C;
+    --footer-text: #EDDDFE;
+    --hover: #5462de;
+    --subtitulos: #f3e9fe;
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--color-primario);
+}
+
+header, nav {
+    background-color: var(--header);
+    color: var(--header-text);
+}
+
+a {
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+h3 {
+    color: var(--subtitulos);
+}
+
+a:hover {
+    color: var(--hover);
+    transition: 0.5s;
+}
+
+
+footer {
+    background-color: var(--footer);
+    color: var(--footer-text);
+}

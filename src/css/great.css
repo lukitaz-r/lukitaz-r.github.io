@@ -1,0 +1,35 @@
+display-great {
+    display: inherit !important;
+}
+
+header, nav, #wrapper{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+    clear: both;
+    justify-content: center;
+}
+
+footer {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#cuerpo-pagina {
+    display: flex;
+}
+
+main {
+    width: 80%;
+}
+aside {
+    width: 20%;
+}

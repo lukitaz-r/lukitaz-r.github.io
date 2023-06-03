@@ -1,26 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap');
 
+.display-small {
+    display: none
+}
+
 body {
     font-family: 'Manrope', sans-serif;
-    max-width: 1500px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-header, nav{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-footer {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
@@ -33,6 +20,27 @@ nav ul {
     list-style-type: none;
 }
 
-nav ul li {
+nav ul li a {
     padding: 1em;
 }
+
+footer {
+    justify-content: center;
+}
+
+footer p {
+    padding: 1em;
+}
+
+footer ul {
+    list-style-type: none;
+    display: flex;
+    align-items: baseline;
+    padding: 0;
+}
+
+footer ul li a img {
+    width: 2.1em;
+    padding: 1em;
+}
+

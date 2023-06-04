@@ -12,9 +12,9 @@
 
 <link rel="stylesheet" href="src/css/base.css">
 <link rel="stylesheet" href="src/css/color.css">
-<link rel="stylesheet" href="src/css/great.css">
+<link rel="stylesheet" href="src/css/great.css" media="screen and (min-width: 550px)">
 <link rel="stylesheet" href="src/css/medium.css">
-<link rel="stylesheet" href="src/css/small.css">
+<link rel="stylesheet" href="src/css/small.css" media="screen and (max-width: 549px)">
 
 <body>
     <header>
@@ -23,11 +23,9 @@
     </header>
 
     <nav>
-        <ul class="display-great">
+        <ul id="nav-great">
             <li><a href="#">CloudCoding</a></li>
             <li><a href="#">Curriculum</a></li>
-            <li><a href="https://github.com/lukitaz-r">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/lukitaz-r/">LinkedIn</a></li>
             <li><a href="#">Servicios</a></li>
         </ul>
 
@@ -47,7 +45,7 @@
                 <p>Hola! Soy <strong>Luca Damian Ramirez, un programador, Diseñador y Desarrollador Web</strong>, muy dedicado y enfocado en su trabajo.</p>
             </article>
             <article id="curriculum">
-                <h3>Curriculum Vitae</h3>
+                <h3><strong>Curriculum Vitae</strong></h3>
                 <ul>
                     <li>
                         Nombres: Luca Damian
@@ -168,9 +166,11 @@
     </div>
 
     <footer>
-        <p>Developed By: Luca Ramirez</h4>
-        <p>Powered by: GitHub Pages</p>
-        <p>Barranqueras Chaco</p>
+        <div class="display-great" id="footer-great">
+            <p>Luca Ramirez</p>
+            <p>Powered by: GitHub Pages</p>
+            <p>Barranqueras Chaco</p>
+        </div>
         <ul>
             <li>
                 <a href="https://twitter.com/alemanashe"><img src="src/img/twitter.png" alt="link twitter"></a>

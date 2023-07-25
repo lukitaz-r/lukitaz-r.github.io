@@ -23,10 +23,10 @@ header, nav, #wrapper{
 }
 
 main {
-    width: 80%;
+    width: 70vw;
 }
 aside {
-    width: 20%;
+    width: 20vw;
 }
 
 footer {

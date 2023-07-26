@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="src/css/freecodecamp/dc-tc.css" />
+	</head>
+	<body>
+		<nav id="navbar">
+			<header>Documentanción JS</header>
+			<ul>
+				<li>
+					<a href="#Introducción" class="nav-link">Introducción</a>
+				</li>
+				<li>
+					<a href="#Que_deberias_saber" class="nav-link"
+						>Que deberias saber</a
+					>
+				</li>
+				<li>
+					<a href="#JavaScript_y_Java" class="nav-link"
+						>JavaScript y Java</a
+					>
+				</li>
+				<li><a href="#Hello_World" class="nav-link">Hello World</a></li>
+				<li><a href="#Variables" class="nav-link">Variables</a></li>
+				<li>
+					<a href="#Declarando_Variables" class="nav-link"
+						>Declarando Variables</a
+					>
+				</li>
+			</ul>
+		</nav>
+		<main id="main-doc">
+			<section class="main-section" id="Introducción">
+				<header>Introducción</header>
+				<p>
+					JavaScript es un lenguaje de programación orientado a
+					objetos y multiplataforma. Es un lenguaje pequeño y ligero.
+					Dentro de un entorno de alojamiento (por ejemplo, un
+					navegador web), JavaScript puede conectarse a los objetos de
+					su entorno para proporcionar control programático sobre
+					ellos.
+				</p>
+				<p>
+					JavaScript contiene una biblioteca estándar de objetos, como
+					Array, Date y Math, y un conjunto básico de elementos del
+					lenguaje, como operadores, estructuras de control y
+					declaraciones. El núcleo de JavaScript se puede extender
+					para una variedad de propósitos mediante la adición de
+					objetos adicionales; por ejemplo:
+				</p>
+				<ul>
+					<li>
+						JavaScript del lado del cliente extiende el lenguaje
+						básico proporcionando objetos para controlar un
+						navegador y su Modelo de Objetos del Documento (DOM).
+						Por ejemplo, las extensiones del lado del cliente
+						permiten que una aplicación coloque elementos en un
+						formulario HTML y responda a eventos del usuario como
+						clics de ratón, entrada de formulario y navegación de
+						página.
+					</li>
+					<li>
+						JavaScript del lado del servidor extiende el lenguaje
+						básico proporcionando objetos relevantes para ejecutar
+						JavaScript en un servidor. Por ejemplo, las extensiones
+						del lado del servidor permiten que una aplicación se
+						comunique con una base de datos, proporcione continuidad
+						de información de una invocación a otra de la aplicación
+						o realice manipulaciones de archivos en un servidor.
+					</li>
+				</ul>
+			</section>
+			<section class="main-section" id="Que_deberias_saber">
+				<header>Que deberias saber</header>
+				<p>
+					Esta guía asume que tienes los siguientes conocimientos
+					básicos:
+				</p>
+				<ul>
+					<li>
+						Una comprensión general de Internet y la World Wide Web
+						(WWW)
+					</li>
+					<li>
+						Buen conocimiento práctico de HyperText Markup Language
+						(HTML).
+					</li>
+					<li>
+						Alguna experiencia en programación. Si eres nuevo en la
+						programación, te recomendamos que pruebes uno de los
+						tutoriales vinculados en la página principal sobre
+						JavaScript.
+					</li>
+				</ul>
+			</section>
+			<section class="main-section" id="JavaScript_y_Java">
+				<header>JavaScript y Java</header>
+				<p>
+					JavaScript y Java son similares en algunos aspectos, pero
+					fundamentalmente diferentes en otros. El lenguaje JavaScript
+					se parece a Java pero no tiene la tipificación estática y la
+					verificación de tipos fuertes de Java. JavaScript sigue la
+					mayoría de la sintaxis de expresiones de Java, convenciones
+					de nomenclatura y estructuras básicas de control de flujo,
+					lo que fue la razón por la que se renombró de LiveScript a
+					JavaScript.
+				</p>
+				<p>
+					A diferencia del sistema de tiempo de compilación de Java de
+					clases construido por declaraciones, JavaScript admite un
+					sistema de tiempo de ejecución basado en un pequeño número
+					de tipos de datos que representan valores numéricos,
+					booleanos y de cadena. JavaScript tiene un modelo de objeto
+					basado en prototipos en lugar del modelo de objeto basado en
+					clases más común. El modelo basado en prototipos proporciona
+					herencia dinámica; es decir, lo que se hereda puede variar
+					para objetos individuales. JavaScript también admite
+					funciones sin requisitos declarativos especiales. Las
+					funciones pueden ser propiedades de objetos, ejecutándose
+					como métodos de tipo suelto.
+				</p>
+				<p>
+					JavaScript es un lenguaje muy libre en comparación con Java.
+					No tienes que declarar todas las variables, clases y
+					métodos. No tienes que preocuparte por si los métodos son
+					públicos, privados o protegidos, y no tienes que implementar
+					interfaces. Las variables, los parámetros y los tipos de
+					retorno de función no se escriben explícitamente.
+				</p>
+			</section>
+			<section class="main-section" id="Hello_World">
+				<header>Hello World</header>
+				<article>
+					<p>
+						Para iniciar con el coding en Javascript, abre tu bloc
+						de notas y empiza con tu primer "Hello world" con codigo
+						de JavaScript:
+					</p>
+					<code
+						>function greetMe(yourName) { alert("Hello " +
+						yourName); } greetMe("World");
+					</code>
+					<p>
+						Selecciona el codigo en el pad y presiona CTRL+R para
+						ver como se abre en tu navegador.
+					</p>
+					<p>
+						Si quiere ejecutarlo en la consola, solo escriba lo
+						siguiente:
+					</p>
+					<code
+						>console.log("Hola, soy mi primer String en consola,
+						Hello World!")
+					</code>
+				</article>
+			</section>
+			<section class="main-section" id="Variables">
+				<header>Variables</header>
+				<p>
+					En JavaScript, las variables se utilizan como nombres
+					simbólicos para los valores en tu aplicación. Los nombres de
+					las variables, llamados identificadores, deben cumplir
+					ciertas reglas.
+				</p>
+				<p>
+					Un identificador de JavaScript debe comenzar con una letra,
+					guión bajo (_) o signo de dólar ($); los caracteres
+					siguientes también pueden ser dígitos (0-9). Debido a que
+					JavaScript distingue entre mayúsculas y minúsculas, las
+					letras incluyen los caracteres "A" a "Z" (mayúsculas) y los
+					caracteres "a" a "z" (minúsculas).
+				</p>
+				<p>
+					Puedes usar letras ISO 8859-1 o Unicode como å y ü en
+					identificadores. También puedes usar secuencias de escape
+					Unicode como caracteres en identificadores. Algunos ejemplos
+					de nombres legales son Number_hits, temp99 y _name.
+				</p>
+			</section>
+			<section class="main-section" id="Declarando_Variables">
+				<header>Declarando Variables</header>
+				<article>
+					<p>
+						En JavaScript, puedes declarar una variable de tres
+						maneras: Con la palabra clave "var". Por ejemplo:
+						<code> var x = 42 </code>
+						Esta sintaxis se puede utilizar para declarar variables
+						locales y globales.
+					</p>
+					<p>
+						Asignándole simplemente un valor. Por ejemplo:
+						<code> x = 42 </code>
+						Esto siempre declara una variable global. Genera una
+						advertencia estricta de JavaScript. No se recomienda
+						utilizar esta variante.
+					</p>
+					<p>
+						Con la palabra clave "let". Por ejemplo:
+						<code> let y = 13 </code>
+						Esta sintaxis se puede utilizar para declarar una
+						variable local de ámbito de bloque.
+					</p>
+				</article>
+			</section>
+		</main>
+	</body>
+</html>

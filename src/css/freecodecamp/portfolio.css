@@ -44,44 +44,6 @@ html {
 	}
 }
 
-@media (max-width: 28.75em) {
-	.nav {
-		justify-content: center;
-	}
-
-	.nav-list {
-		margin: 0 1rem;
-	}
-}
-
-@media (max-width: 28.75em) {
-	.projects-section-header {
-		font-size: 4rem;
-	}
-}
-
-@media (max-width: 30.625em) {
-	.projects-section {
-		padding: 6rem 1rem;
-	}
-
-	.projects-grid {
-		grid-template-columns: 1fr;
-	}
-}
-
-@media (max-width: 28.75em) {
-	.contact-section-header > h2 {
-		font-size: 4rem;
-	}
-}
-
-@media (max-width: 28.75em) {
-	footer {
-		flex-direction: column;
-		text-align: center;
-	}
-}
 
 /* Estilos base  */
 body {
@@ -155,6 +117,17 @@ img {
     transition: 0.6s ease;
 }
 
+
+@media (max-width: 28.75em) {
+	.nav {
+		justify-content: center;
+	}
+
+	.nav-list {
+		margin: 0 1rem;
+	}
+}
+
 /* Seccion Welcome */
 #welcome-section {
 	display: flex;
@@ -168,7 +141,7 @@ img {
 }
 
 #welcome-section > h1 {
-	animation: inicio 2s forwards;
+	animation: inicioText 2s forwards;
 }
 
 #welcome-section > p {
@@ -176,7 +149,7 @@ img {
 	font-weight: 200;
 	font-style: italic;
 	color: var(--color-primario);
-	animation: inicio 2s forwards;
+	animation: inicioText 2s forwards;
 }
 
 #welcome-section > p:hover {
@@ -184,7 +157,7 @@ img {
 	transition: 0.6s ease;
 }
 
-@keyframes inicio {
+@keyframes inicioText {
 	0% {
         transform: translateX(-100px);
         transform: translateY(-100px); 
@@ -252,6 +225,22 @@ img {
 	padding: 1rem 2rem;
 	border-radius: 2px;
 }
+
+@media (max-width: 28.75em) {
+	.projects-section-header {
+		font-size: 4rem;
+	}
+}
+
+@media (max-width: 30.625em) {
+	.projects-section {
+		padding: 6rem 1rem;
+	}
+
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+}
 /* Contact section */
 .contact-section {
 	display: flex;
@@ -259,9 +248,8 @@ img {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	width: 100%;
+	width: 100vw;
 	height: 80vh;
-	padding: 0 2rem;
 	background: var(--color-terciario);
 }
 
@@ -294,6 +282,11 @@ img {
 	transform: translateY(-8px);
 }
 
+@media (max-width: 28.75em) {
+	.contact-section-header > h2 {
+		font-size: 4rem;
+	}
+}
 /* Footer */
 footer {
 	font-weight: 300;
@@ -310,4 +303,11 @@ footer > p {
 
 footer i {
 	vertical-align: middle;
+}
+
+@media (max-width: 28.75em) {
+	footer {
+		flex-direction: column;
+		text-align: center;
+	}
 }

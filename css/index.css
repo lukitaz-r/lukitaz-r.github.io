@@ -1,0 +1,371 @@
+/* ========================================
+   VARIABLES CSS
+   ======================================== */
+:root {
+  /* Colores base */
+  --negro: #0a0a0a;
+  --gris-oscuro: #1a1a1a;
+  --gris-medio: #2a2a2a;
+  --gris: #4a4a4a;
+  --gris-claro: #b0b0b0;
+  --blanco: #e8e8e8;
+  --morado-oscuro: #4a1a5c;
+  --morado-acento: #6b2d8a;
+  --morado-claro: #9d5bb8;
+  
+  /* Sombras y efectos */
+  --sombra-neon: inset 0 0 0 3px var(--morado-acento),
+                 inset 0 0 20px rgba(107, 45, 138, 0.5),
+                 inset 0 0 40px rgba(107, 45, 138, 0.3);
+  --sombra-neon-dim: inset 0 0 0 1px var(--morado-acento),
+                     inset 0 0 10px rgba(107, 45, 138, 0.5),
+                     inset 0 0 20px rgba(107, 45, 138, 0.3);
+  
+  /* Transiciones */
+  --transition-fast: 0.2s ease-out;
+  --transition-medium: 0.5s ease-out;
+  --transition-slow: 0.8s ease-out;
+}
+
+/* ========================================
+   ESTILOS GLOBALES
+   ======================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(135deg, var(--negro), var(--gris-oscuro));
+  color: var(--blanco);
+  min-height: 100vh;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background: var(--gris-oscuro);
+  position: relative;
+  transition: all var(--transition-slow);
+}
+
+/* Borde neón animado */
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: var(--sombra-neon);
+  animation: brightness 4s ease-out alternate-reverse infinite;
+  opacity: 1;
+  transition: opacity var(--transition-slow);
+  pointer-events: none;
+}
+
+header.scrolled::before {
+  opacity: 0;
+}
+
+/* Título con efecto cromado */
+header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  letter-spacing: 2px;
+  position: relative;
+  transition: all var(--transition-slow);
+}
+
+header h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    var(--morado-oscuro) 0%,
+    var(--morado-acento) 25%,
+    var(--morado-claro) 50%,
+    var(--morado-acento) 75%,
+    var(--morado-oscuro) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: chrome-shine 3s linear infinite;
+  opacity: 1;
+  transition: opacity var(--transition-slow);
+}
+
+header h1::after {
+  content: attr(data-text);
+  background: var(--morado-acento);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header.scrolled h1::before {
+  opacity: 0;
+}
+
+/* Subtítulo */
+header p {
+  margin: 0.5rem 0 0 0;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: var(--gris-claro);
+}
+
+/* Avatar */
+header img {
+  border-radius: 50%;
+  width: 20%;
+  min-width: 200px;
+  max-width: 300px;
+  object-fit: cover;
+}
+
+/* Texto animado con rainbow */
+.fullstack_text {
+  font-weight: 600;
+  font-style: italic; 
+  position: relative;
+  transition: all var(--transition-slow);
+}
+
+.fullstack_text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--morado-acento);
+  animation: rainbow 5s linear infinite;
+  opacity: 1;
+  transition: opacity var(--transition-slow);
+}
+
+.fullstack_text::after {
+  content: attr(data-text);
+  color: var(--morado-acento);
+}
+
+header.scrolled .fullstack_text::before {
+  opacity: 0;
+}
+
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+@keyframes chrome-shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes brightness {
+  0%, 100% {
+    box-shadow: var(--sombra-neon);
+  }
+  50% {
+    box-shadow: var(--sombra-neon);
+  }
+  51%, 57% {
+    box-shadow: none;
+  }
+  55%, 59% {
+    box-shadow: var(--sombra-neon);
+  }
+  75% {
+    box-shadow: var(--sombra-neon-dim);
+  }
+}
+
+@keyframes rainbow {
+  0%, 100% { color: #8a2be2; }
+  16% { color: #ff0059; }
+  33% { color: #ffe600; }
+  50% { color: #2bff00; }
+  66% { color: #00b3ff; }
+  83% { color: #2b00ff; }
+}
+
+/* Deshabilitar animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+main > h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.about-me {
+  margin: 0 0 3rem 1rem;
+}
+
+.about-me > h3 {
+  font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+}
+
+/* ========================================
+   TAGS DE TECNOLOGÍAS
+   ======================================== */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  background: var(--gris);
+  color: var(--blanco);
+  padding: 0.3rem 0.8rem;
+  border-radius: 99px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: 1px solid var(--morado-oscuro);
+  transition: all var(--transition-fast);
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tag ion-icon {
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+/* Hover effects para tecnologías específicas */
+.js:hover { background-color: #f0db4f; color: #323330; }
+.node:hover { background-color: #3c873a; color: #303030; }
+.react:hover { background-color: #61dbfb; color: #323330; }
+.next:hover { background-color: #060101; color: #f5f6f2; }
+.mongo:hover { background-color: #4db33d; color: #e8e7d5; }
+.disc:hover { background-color: #738adb; color: #fbfbfb; }
+.html:hover { background-color: #f06529; color: #ebebeb; }
+.css:hover { background-color: #6203bb; color: #f4f4f4; }
+.py:hover { background-color: #306998; color: #ffe873; }
+
+/* ========================================
+   TARJETAS DE PROYECTOS
+   ======================================== */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.loading-message {
+  text-align: center;
+  grid-column: 1 / -1;
+  color: var(--gris-claro);
+}
+
+.card {
+  background: var(--gris-medio);
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--gris);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(107, 45, 138, 0.3);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid var(--morado-acento);
+  background: var(--blanco);
+}
+
+.card h2 {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.card p {
+  margin: 0.5rem 0 0 0;
+  color: var(--gris-claro);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.card .tags {
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.card a {
+  color: var(--morado-acento);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.card a:hover {
+  color: var(--morado-claro);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--gris-claro);
+  font-size: 1rem;
+  background: var(--gris-oscuro);
+  margin-top: 2rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  header img {
+    min-width: 150px;
+  }
+  
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}

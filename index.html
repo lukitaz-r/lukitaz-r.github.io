@@ -1,66 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Portafolio - Luca Ramirez
-		</title>
-		<link rel="stylesheet" href="src/css/freecodecamp/portfolio.css" />
-		<link
-			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-			crossorigin="anonymous"
-		/>
-	</head>
-	<body>
-		<nav id="navbar">
-			<ul class="nav-list">
-				<li><a href="#welcome-section">Acerca de mi</a></li>
-				<li><a href="#contact">Contacto</a></li>
-			</ul>
-		</nav>
-		<section id="welcome-section">
-			<h1>Hola, soy Luca Ramirez</h1>
-			<p>un Desarrollador Web</p>
-		</section>
-		<section id="contact" class="contact-section">
-			<div class="contact-section-header">
-				<h2>Contactame</h2>
-			</div>
-			<div class="contact-links">
-				<a
-					href="https://github.com/lukitaz-r"
-					class="btn contact-details"
-					target="_blank"
-				>
-					<i class="fab fa-github"></i>
-					Github
-				</a>
-				<a
-					href="https://twitter.com/lukitaz_r"
-					target="_blank"
-					class="btn contact-details"
-				>
-					<i class="fab fa-twitter"></i>
-					Twitter
-				</a>
-				<a
-					href="mailto:lucadamianramirez10"
-					target="_blank"
-					class="btn contact-details"
-				>
-					<i class="fas fa-at"></i>
-					Enviame un correo
-				</a>
-			</div>
-		</section>
-		<footer>
-			<p>Barranqueras, Chaco, Argentina</p>
-			<p>
-				© Creado por Luca Ramirez
-				<i class="fab fa-free-code-camp"></i>
-			</p>
-		</footer>
-	</body>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio de Luca Ramirez - Desarrollador Front End especializado en JavaScript, React, Node.js y más">
+  <meta name="author" content="Luca Ramirez">
+  <title>Luca Ramirez - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="./css/index.css" rel="stylesheet"/> 
+</head>
+<body>
+  <header>
+    <div> 
+      <img src="https://avatars.githubusercontent.com/u/76229121?&v=4" alt="Foto de perfil de Luca Ramirez" width="200" height="200">
+      <h1 data-text="Luca Ramirez">Luca Ramirez</h1>
+      <p>Desarrollador <span class="fullstack_text" data-text="Front End">Front End</span></p>
+    </div>
+  </header>
+  
+  <main>
+    <h2 id="about-me">Sobre mí</h2>
+    <article class="about-me"> 
+      <p>¡Hola! Soy Luca Damian Ramirez, un apasionado desarrollador preparado para cualquier desafío. Actualmente estoy cursando la carrera de Ingeniería en Sistemas de Información en la Universidad Tecnológica Nacional (FRRE). Programo desde los 9 años de forma totalmente autodidacta, 6 años creando proyectos personales y otros 4 trabajando de forma freelancer.</p>
+
+      <h3>Tecnologías</h3>
+      <div class="tags">
+        <span class="tag js">
+          <ion-icon name="logo-javascript"></ion-icon>
+          JavaScript
+        </span>
+        <span class="tag node">
+          <ion-icon name="logo-nodejs"></ion-icon>
+          Node.js
+        </span>
+        <span class="tag react">
+          <ion-icon name="logo-react"></ion-icon>
+          React.js
+        </span>
+        <span class="tag next">
+          <ion-icon name="code-slash-outline"></ion-icon>
+          Next.js
+        </span>
+        <span class="tag mongo">
+          <ion-icon name="leaf-outline"></ion-icon>
+          Mongo DB
+        </span>
+        <span class="tag disc">
+          <ion-icon name="chatbubbles-outline"></ion-icon>
+          Discord.js
+        </span>
+        <span class="tag html">
+          <ion-icon name="logo-html5"></ion-icon>
+          HTML
+        </span>
+        <span class="tag css">
+          <ion-icon name="logo-css3"></ion-icon>
+          CSS
+        </span>
+        <span class="tag py">
+          <ion-icon name="logo-python"></ion-icon>
+          Python
+        </span>
+      </div>
+    </article>
+
+    <h2>Proyectos</h2>
+    <article class="card-container" id="projects-container" aria-live="polite" aria-busy="true">
+      <p class="loading-message">Cargando proyectos desde GitHub...</p>
+    </article>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Lukitaz. Todos los derechos reservados.</p>
+  </footer>
+  
+  <script src="./js/scroll-effects.js"></script>
+  <script src="./js/github-projects.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
 </html>

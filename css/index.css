@@ -128,7 +128,9 @@ header img {
   border-radius: 50%;
   width: 20%;
   min-width: 200px;
+  min-height: 200px;
   max-width: 300px;
+  max-height: 300px;
   object-fit: cover;
 }
 
@@ -228,6 +230,14 @@ main > h2 {
   font-size: clamp(1.3rem, 3.5vw, 1.6rem);
 }
 
+.about-me p {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+}
+
+.about-me > .tags {
+  justify-content: center;
+}
+
 /* ========================================
               TAGS DE TECNOLOGÍAS
    ======================================== */
@@ -254,29 +264,34 @@ main > h2 {
   gap: 0.4rem;
 }
 
-.tag ion-icon {
+.tag i {
   font-size: 1.3rem;
   vertical-align: middle;
 }
 
 /* Hover effects para tecnologías específicas */
 .js:hover { background-color: #f0db4f; color: #323330; border: 1px solid var(--negro); }
+.ts:hover { background-color: #3178c6; color: #efefef; border: 1px solid var(--negro); }
 .node:hover { background-color: #3c873a; color: #303030; border: 1px solid var(--negro); }
+.node:hover i { color: #002804; }
 .react:hover { background-color: #61dbfb; color: #323330; border: 1px solid var(--negro); }
 .next:hover { background-color: #060101; color: #f5f6f2; border: 1px solid var(--negro); }
 .mongo:hover { background-color: #4db33d; color: #e8e7d5; border: 1px solid var(--negro); }
-.disc:hover { background-color: #738adb; color: #fbfbfb; border: 1px solid var(--negro); }
+.discord:hover { background-color: #738adb; color: #fbfbfb; border: 1px solid var(--negro); }
 .html:hover { background-color: #f06529; color: #ebebeb; border: 1px solid var(--negro); }
 .css:hover { background-color: #6203bb; color: #f4f4f4; border: 1px solid var(--negro); }
 .py:hover { background-color: #306998; color: #ffe873; border: 1px solid var(--negro); }
+.vite:hover { background: linear-gradient(45deg, #52bcff, #bd34fe); color: #fbcc10; border: 1px solid var(--negro); }
+.vite:hover i { color: #0a0700ae; }
 
 /* ========================================
             TARJETAS DE PROYECTOS
    ======================================== */
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
 }
 
 .loading-message {
@@ -295,6 +310,8 @@ main > h2 {
   align-items: center;
   border: 1px solid var(--gris);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  flex: 1 1 250px;
+  max-width: 350px;
 }
 
 .card:hover {
@@ -363,6 +380,7 @@ footer p {
 @media (max-width: 768px) {
   header img {
     min-width: 150px;
+    min-height: 150px;
   }
   
   .card-container {

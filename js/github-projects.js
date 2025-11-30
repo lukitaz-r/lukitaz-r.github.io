@@ -10,16 +10,46 @@ const CONFIG = {
   username: 'lukitaz-r',
   apiUrl: 'https://api.github.com/users/lukitaz-r/repos',
   maxLanguageTags: 4,
+  maxTopicTags: 4,
   sortBy: 'updated',
-  perPage: 100
+  perPage: 100,
+  // Token de GitHub (OPCIONAL) - Aumenta el límite de peticiones a la API
+  // Para obtener un token: GitHub > Settings > Developer settings > Personal access tokens > Tokens (classic)
+  // NO requiere permisos especiales, solo para peticiones públicas
+  githubToken: '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' // Dejar vacío si no deseas usar autenticación
 };
+
+// Tecnologías válidas basadas en la sección "Tecnologías" del portfolio
+// Los topics de GitHub que coincidan con estas se mostrarán en las tarjetas
+const VALID_TECHNOLOGIES = [
+  'javascript',
+  'typescript',
+  'vitejs',
+  'node.js',
+  'nodejs',
+  'react',
+  'reactjs',
+  'react.js',
+  'next.js',
+  'nextjs',
+  'mongodb',
+  'mongo',
+  'discord.js',
+  'discordjs',
+  'html',
+  'html5',
+  'css',
+  'css3',
+  'python'
+].map(tech => tech.toLowerCase());
 
 // ========================================
 // MAPEOS DE DATOS
 // ========================================
 const languageClassMap = {
   'JavaScript': 'js',
-  'TypeScript': 'js',
+  'TypeScript': 'ts',
+  'Vite.js': 'vite',
   'Node.js': 'node',
   'React': 'react',
   'Next.js': 'next',
@@ -27,7 +57,7 @@ const languageClassMap = {
   'HTML': 'html',
   'CSS': 'css',
   'Python': 'py',
-  'Discord.js': 'disc',
+  'Discord.js': 'discord',
   'Java': 'java',
   'C++': 'cpp',
   'C#': 'csharp',
@@ -39,30 +69,33 @@ const languageClassMap = {
 
 // Mapeo de lenguajes a iconos de Ionicons
 const languageIconsMap = {
-  'JavaScript': 'logo-javascript',
-  'TypeScript': 'logo-javascript', // TypeScript usa el mismo icono
-  'Python': 'logo-python',
-  'HTML': 'logo-html5',
-  'CSS': 'logo-css3',
-  'Java': 'logo-java',
-  'React': 'logo-react',
-  'Vue': 'logo-vue',
-  'Angular': 'logo-angular',
-  'Node.js': 'logo-nodejs',
-  'PHP': 'logo-php',
-  'Ruby': 'logo-ruby',
-  'Swift': 'logo-swift',
-  'C': 'code-slash-outline',
-  'C++': 'code-slash-outline',
-  'C#': 'code-slash-outline',
-  'Go': 'code-working-outline',
-  'Rust': 'code-working-outline',
-  'Kotlin': 'code-slash-outline',
-  'Dart': 'code-slash-outline',
-  'Shell': 'terminal-outline',
-  'PowerShell': 'terminal-outline',
-  'Dockerfile': 'cube-outline',
-  'default': 'code-outline'
+  'JavaScript': 'devicon-javascript-plain',
+  'TypeScript': 'devicon-typescript-plain', 
+  'Python': 'devicon-python-plain',
+  'HTML': 'devicon-html5-plain',
+  'CSS': 'devicon-css3-plain',
+  'Java': 'devicon-java-plain',
+  'React': 'devicon-react-plain',
+  'Discord.js': 'devicon-discordjs-plain',
+  'MongoDB': 'devicon-mongodb-plain',
+  'Vite.js': 'devicon-vitejs-plain',
+  'Vue': 'devicon-vuejs-plain',
+  'Angular': 'devicon-angularjs-plain',
+  'Node.js': 'devicon-nodejs-plain',
+  'PHP': 'devicon-php-plain',
+  'Ruby': 'devicon-ruby-plain',
+  'Swift': 'devicon-swift-plain',
+  'C': 'devicon-c-plain',
+  'C++': 'devicon-cplusplus-plain',
+  'C#': 'devicon-csharp-plain',
+  'Go': 'devicon-go-plain',
+  'Rust': 'devicon-rust-plain',
+  'Kotlin': 'devicon-kotlin-plain',
+  'Dart': 'devicon-dart-plain',
+  'Shell': 'terminal-plain',
+  'PowerShell': 'terminal-plain',
+  'Dockerfile': 'cube-plain',
+  'default': 'code-plain'
 };
 
 const languageIcons = {
@@ -86,13 +119,32 @@ const languageIcons = {
 // ========================================
 
 /**
+ * Crea los headers para las peticiones a la API de GitHub
+ * @returns {Object} Headers de la petición
+ */
+function getGitHubHeaders() {
+  const headers = {
+    'Accept': 'application/vnd.github.v3+json'
+  };
+  
+  // Agregar token de autenticación si está configurado
+  if (CONFIG.githubToken && CONFIG.githubToken.trim() !== '') {
+    headers['Authorization'] = `token ${CONFIG.githubToken}`;
+  }
+  
+  return headers;
+}
+
+/**
  * Obtiene los repositorios desde la API de GitHub
  * @returns {Promise<Array>} Array de repositorios
  */
 async function fetchGitHubRepos() {
   try {
     const url = `${CONFIG.apiUrl}?sort=${CONFIG.sortBy}&per_page=${CONFIG.perPage}`;
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      headers: getGitHubHeaders()
+    });
     
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -115,7 +167,9 @@ async function fetchGitHubRepos() {
  */
 async function fetchRepoLanguages(languagesUrl) {
   try {
-    const response = await fetch(languagesUrl);
+    const response = await fetch(languagesUrl, {
+      headers: getGitHubHeaders()
+    });
     if (!response.ok) return {};
     
     return await response.json();
@@ -139,8 +193,52 @@ async function fetchAllLanguages(repos) {
   return Promise.all(promises);
 }
 
+/**
+ * Filtra los topics de un repositorio para mostrar solo tecnologías válidas
+ * @param {Array} topics - Array de topics del repositorio
+ * @returns {Array} Topics filtrados y normalizados
+ */
+function filterValidTopics(topics) {
+  if (!topics || !Array.isArray(topics) || topics.length === 0) {
+    return [];
+  }
+  
+  // Normalizar topics: convertir a minúsculas y filtrar por tecnologías válidas
+  const validTopics = topics
+    .map(topic => topic.toLowerCase())
+    .filter(topic => VALID_TECHNOLOGIES.includes(topic));
+  
+  // Normalizar nombres para mostrar (capitalización correcta)
+  const topicMap = {
+    'javascript': 'JavaScript',
+    'typescript': 'TypeScript',
+    'node.js': 'Node.js',
+    'nodejs': 'Node.js',
+    'react': 'React',
+    'reactjs': 'React',
+    'react.js': 'React',
+    'next.js': 'Next.js',
+    'nextjs': 'Next.js',
+    'mongodb': 'MongoDB',
+    'mongo': 'MongoDB',
+    'discord.js': 'Discord.js',
+    'discordjs': 'Discord.js',
+    'html': 'HTML',
+    'html5': 'HTML',
+    'css': 'CSS',
+    'css3': 'CSS',
+    'python': 'Python',
+    'vitejs': 'Vite.js'
+  };
+  
+  // Eliminar duplicados (ej: nodejs y node.js se convierten en Node.js)
+  const normalizedTopics = [...new Set(validTopics.map(topic => topicMap[topic] || topic))];
+  
+  return normalizedTopics.slice(0, CONFIG.maxTopicTags);
+}
+
 // ========================================
-// FUNCIONES DE RENDERIZADO
+//        FUNCIONES DE RENDERIZADO
 // ========================================
 
 /**
@@ -156,8 +254,31 @@ function createLanguageTags(languages) {
       const iconName = languageIconsMap[lang] || languageIconsMap['default'];
       
       return `<span class="tag ${cssClass}">
-        <ion-icon name="${iconName}"></ion-icon>
+        <i class="${iconName}"></i>
         ${escapeHtml(lang)}
+      </span>`;
+    })
+    .join('');
+}
+
+/**
+ * Crea el HTML para los tags de topics (tecnologías del repositorio)
+ * @param {Array} topics - Array de topics filtrados
+ * @returns {string} HTML de los tags de topics
+ */
+function createTopicTags(topics) {
+  if (!topics || topics.length === 0) {
+    return '';
+  }
+  
+  return topics
+    .map(topic => {
+      const cssClass = languageClassMap[topic] || '';
+      const iconName = languageIconsMap[topic] || languageIconsMap['default'];
+      
+      return `<span class="tag ${cssClass}">
+        <i class="${iconName}"></i>
+        ${escapeHtml(topic)}
       </span>`;
     })
     .join('');
@@ -199,16 +320,21 @@ function escapeHtml(text) {
  * Crea una tarjeta HTML para un proyecto
  * @param {Object} repo - Repositorio de GitHub
  * @param {Object} languages - Lenguajes del repositorio
+ * @param {Array} filteredTopics - Topics filtrados del repositorio
  * @returns {HTMLElement} Elemento de la tarjeta
  */
-function createProjectCard(repo, languages) {
+function createProjectCard(repo, languages, filteredTopics = []) {
   const card = document.createElement('div');
   card.className = 'card';
   
   const icon = languageIcons[repo.language] || languageIcons['default'];
   const description = escapeHtml(repo.description || 'Proyecto de desarrollo personal');
   const languageTags = createLanguageTags(languages);
+  const topicTags = createTopicTags(filteredTopics);
   const stats = createRepoStats(repo);
+  
+  // Combinar lenguajes y topics, priorizando topics si existen
+  const allTags = topicTags || languageTags;
   
   card.innerHTML = `
     <img src="${icon}" alt="Icono de ${escapeHtml(repo.name)}" loading="lazy" width="80" height="80">
@@ -224,7 +350,7 @@ function createProjectCard(repo, languages) {
         Ver en GitHub
       </a>
     </p>
-    ${languageTags ? `<div class="tags">${languageTags}</div>` : ''}
+    ${allTags ? `<div class="tags">${allTags}</div>` : ''}
   `;
   
   return card;
@@ -273,7 +399,11 @@ async function renderProjects() {
     // Crear y agregar tarjetas
     const fragment = document.createDocumentFragment();
     reposWithLanguages.forEach(({ repo, languages }) => {
-      const card = createProjectCard(repo, languages);
+      // Filtrar topics válidos del repositorio
+      const filteredTopics = filterValidTopics(repo.topics || []);
+      
+      // Crear tarjeta con lenguajes y topics
+      const card = createProjectCard(repo, languages, filteredTopics);
       fragment.appendChild(card);
     });
     

@@ -1,5 +1,5 @@
 /**
- * Scroll Effects - Optimized
+ * Scroll Effects - Optimizado
  * Maneja los efectos visuales del header basados en el scroll
  */
 

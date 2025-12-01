@@ -16,7 +16,7 @@ const CONFIG = {
   // Token de GitHub (OPCIONAL) - Aumenta el límite de peticiones a la API
   // Para obtener un token: GitHub > Settings > Developer settings > Personal access tokens > Tokens (classic)
   // NO requiere permisos especiales, solo para peticiones públicas
-  githubToken: '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' // Dejar vacío si no deseas usar autenticación
+  githubToken: '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' // Dejar vacío si no deseas usar autenticación
 };
 
 // Tecnologías válidas basadas en la sección "Tecnologías" del portfolio

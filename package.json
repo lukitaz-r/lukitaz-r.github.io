@@ -1,0 +1,23 @@
+{
+  "name": "lukitaz-r.github.io",
+  "version": "1.0.0",
+  "description": "pagina web portfolio del Desarrollador Web Luca Damian Ramirez",
+  "homepage": "https://github.com/lukitaz-r/lukitaz-r.github.io#readme",
+  "bugs": {
+    "url": "https://github.com/lukitaz-r/lukitaz-r.github.io/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukitaz-r/lukitaz-r.github.io.git"
+  },
+  "license": "ISC",
+  "author": "luca ramirez",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}

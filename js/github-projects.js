@@ -2,7 +2,6 @@
  * GitHub Projects Loader - Optimized
  * Carga y renderiza proyectos desde la API de GitHub
  */
-
 // ========================================
 //              CONFIGURACIÓN
 // ========================================

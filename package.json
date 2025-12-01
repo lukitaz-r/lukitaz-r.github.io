@@ -1,21 +1,18 @@
 {
-  "name": "lukitaz-r.github.io",
-  "version": "1.0.0",
-  "description": "pagina web portfolio del Desarrollador Web Luca Damian Ramirez",
-  "homepage": "https://github.com/lukitaz-r/lukitaz-r.github.io#readme",
-  "bugs": {
-    "url": "https://github.com/lukitaz-r/lukitaz-r.github.io/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lukitaz-r/lukitaz-r.github.io.git"
-  },
-  "license": "ISC",
-  "author": "luca ramirez",
+  "name": "lukitaz-r",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "npm:rolldown-vite@7.2.5"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.2.5"
   },
   "dependencies": {
     "dotenv": "^17.2.3"

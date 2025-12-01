@@ -5,7 +5,7 @@
 // ========================================
 //              CONFIGURACIÓN
 // ========================================
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 const CONFIG = {
   username: 'lukitaz-r',

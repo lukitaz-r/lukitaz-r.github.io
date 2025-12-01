@@ -4,8 +4,10 @@
  */
 
 // ========================================
-// CONFIGURACIÓN
+//              CONFIGURACIÓN
 // ========================================
+import dotenv from 'dotenv';
+dotenv.config();
 const CONFIG = {
   username: 'lukitaz-r',
   apiUrl: 'https://api.github.com/users/lukitaz-r/repos',
@@ -16,7 +18,7 @@ const CONFIG = {
   // Token de GitHub (OPCIONAL) - Aumenta el límite de peticiones a la API
   // Para obtener un token: GitHub > Settings > Developer settings > Personal access tokens > Tokens (classic)
   // NO requiere permisos especiales, solo para peticiones públicas
-  githubToken: '' // Dejar vacío si no deseas usar autenticación
+  githubToken: process.env.GITHUB_TOKEN || '', // Dejar vacío si no deseas usar autenticación
 };
 
 // Tecnologías válidas basadas en la sección "Tecnologías" del portfolio

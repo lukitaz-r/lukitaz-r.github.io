@@ -50,7 +50,8 @@ const TECH_CONFIG = {
     'vite': { icon: 'fas fa-bolt', label: 'Vite', color: 'orange' },
     'discord': { icon: 'fab fa-discord', label: 'Discord.js', color: 'blue' },
     'discordjs': { icon: 'fab fa-discord', label: 'Discord.js', color: 'blue' },
-    'discord.js': { icon: 'fab fa-discord', label: 'Discord.js', color: 'blue' }
+    'discord.js': { icon: 'fab fa-discord', label: 'Discord.js', color: 'blue' },
+    'rust': { icon: 'fab fa-rust', label: 'Rust', color: 'orange' },
 };
 
 export function renderTechnologies(repos) {

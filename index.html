@@ -1,85 +1,306 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio de Luca Ramirez - Desarrollador Front End especializado en JavaScript, React, Node.js y más">
-  <meta name="author" content="Luca Ramirez">
-  <title>Luca Ramirez - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link href="./src/css/index.css" rel="stylesheet"/> 
-  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Básico -->
+    <title>Luca Ramirez | Desarrollador Full Stack Junior - Trainee</title>
+    <meta name="description" content="Portfolio profesional de Luca Ramirez, Desarrollador Full Stack Junior / Trainee apasionado por Node.js, React y soluciones web modernas.">
+    <meta name="keywords" content="Luca Ramirez, Desarrollador Full Stack, Junior Developer, Trainee, Node.js, React, Portfolio Web, Desarrollador de Software, Chaco, Argentina">
+    <meta name="author" content="Luca Ramirez">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/lukitaz-r">
+    <meta property="og:title" content="Luca Ramirez | Desarrollador Full Stack Junior">
+    <meta property="og:description" content="Explora los proyectos y habilidades de Luca Ramirez, desarrollador enfocado en tecnologías Full Stack modernas.">
+    <meta property="og:image" content="./assets/avatar.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Luca Ramirez | Desarrollador Full Stack Junior">
+    <meta property="twitter:description" content="Portfolio profesional de Luca Ramirez, Desarrollador Full Stack Junior / Trainee.">
+    <meta property="twitter:image" content="./assets/avatar.jpg">
+
+    <!-- Datos Estructurados (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Luca Ramirez",
+      "jobTitle": "Desarrollador Full Stack Junior",
+      "url": "https://github.com/lukitaz-r",
+      "sameAs": [
+        "https://www.linkedin.com/in/lukitaz-r/",
+        "https://github.com/lukitaz-r"
+      ],
+      "description": "Desarrollador Full Stack Junior especializado en tecnologías web modernas como React, Node.js y Tailwind CSS.",
+      "knowsAbout": ["Full Stack Development", "JavaScript", "Node.js", "React", "HTML5", "CSS3", "Git"]
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Deshabilitar selección globalmente */
+        *, *::before, *::after {
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        /* Re-habilitar selección para contenido significativo */
+        p, h1, h2, h3, span, .prose, #modal-description, #about-content {
+            user-select: text;
+        }
+
+        /* Asegurar que las imágenes no se puedan arrastrar para evitar efecto fantasma */
+        img {
+            pointer-events: none;
+        }
+
+        /* Permitir eventos de puntero en elementos interactivos pero mantenerlos no seleccionables */
+        a, button, .cursor-pointer {
+            pointer-events: auto;
+        }
+
+        /* Animación de Palabras Flotantes */
+        .floating-word {
+            position: absolute;
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+            font-weight: bold;
+            opacity: 0; /* Empezar oculto */
+            z-index: 0;
+        }
+
+        @keyframes floatLeft {
+            0% { transform: translateX(100vw); opacity: 0; }
+            10% { opacity: 0.1; }
+            90% { opacity: 0.1; }
+            100% { transform: translateX(-100%); opacity: 0; }
+        }
+
+        @keyframes floatRight {
+            0% { transform: translateX(-100%); opacity: 0; }
+            10% { opacity: 0.1; }
+            90% { opacity: 0.1; }
+            100% { transform: translateX(100vw); opacity: 0; }
+        }
+
+        /* Cursor de Escritura */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            color: #5c6ac4;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'scroll': 'scroll 40s linear infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }, // Mover 50% ya que duplicamos la lista
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-  <header>
-    <div> 
-      <img src="https://avatars.githubusercontent.com/u/76229121?&v=4" alt="Foto de perfil de Luca Ramirez" width="200" height="200">
-      <h1 data-text="Luca Ramirez"></h1>
-      <p>Desarrollador <span class="fullstack_text" data-text="Front End"></span></p>
+<body class="bg-[#1a1a23] z-0 text-white font-mono antialiased">
+
+    <!-- Sección de Cabecera -->
+    <header class="min-h-screen flex items-center justify-center px-4 relative overflow-hidden py-20">
+        <!-- Efecto de Gradiente de Fondo -->
+        <div class="absolute inset-0 bg-linear-to-br from-blue-900/10 to-purple-900/10 z-0 pointer-events-none"></div>
+        
+        <div class="z-10 w-full max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+            
+            <!-- Izquierda: Contenido de Texto -->
+            <div class="flex-1 text-center md:text-left space-y-6 animate-fade-in-up">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-2">
+                    <span id="developer-name" class="block text-blue-400 mt-2">Luca Ramirez</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-blue-200/80 font-light">
+                    Desarrollador Full Stack
+                </h2>
+                
+                <p id="hero-description" class="text-gray-400 max-w-lg mx-auto md:mx-0 text-sm md:text-base leading-relaxed">
+                    Transformo mi pasión de toda la vida en soluciones modernas y eficientes.
+                </p>
+
+                <div class="pt-4 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#projects" class="px-8 py-3 bg-[#5c6ac4] hover:bg-[#4f5b93] text-white rounded-md font-semibold transition-all shadow-lg shadow-blue-900/20 flex items-center justify-center gap-2">
+                        <i class="fas fa-code"></i> Ver Proyectos
+                    </a>
+                    <a href="./assets/Currículum ESP.pdf" class="px-8 py-3 bg-[#1a1a23] border border-[#5c6ac4] text-[#5c6ac4] hover:bg-[#5c6ac4] hover:text-white rounded-md font-semibold transition-all flex items-center justify-center gap-2">
+                        <i class="fas fa-file-arrow-down"></i> Descargar CV
+                    </a>
+                </div>
+
+                 <!-- Enlaces Sociales -->
+                 <div class="flex gap-6 justify-center md:justify-start pt-6 text-4xl text-gray-500">
+                    <a href="https://github.com/lukitaz-r" class="hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/lukitaz-r/" class="hover:text-blue-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:lucadamianramirez10@gmail.com" class="hover:text-red-400 transition-colors"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Derecha: Imagen de Perfil -->
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-linear-to-r from-blue-600 to-purple-600 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                <img id="profile-image" src="./assets/placeholder-profile.png" alt="Perfil" class="relative rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-[#2d2d3a] shadow-2xl">
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 animate-bounce hidden md:block">
+            <i class="fas fa-chevron-down text-2xl text-gray-600"></i>
+        </div>
+    </header>
+
+    <!-- Sección Sobre Mí -->
+    <section id="about" class="py-20 px-4 bg-gray-800/50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-400"><i class="fas fa-user-circle mr-2"></i>Sobre Mí</h2>
+            <div id="about-content" class="text-lg text-gray-300 leading-relaxed bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700">
+                <p>
+                    Mi camino en la programación comenzó siendo solo un niño, impulsado por una curiosidad innata que pronto se transformó en vocación. A pesar de mi juventud, esa pasión temprana me ha permitido acumular años de experiencia real y desarrollar un dominio sólido de tecnologías web Full Stack. Node.js, HTML5 & CSS my beloveds. Live Forever como dijo Noel!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Tecnologías (Scroll Infinito) -->
+    <section id="technologies" class="py-16 bg-gray-900 overflow-hidden relative">
+        <h2 class="text-center text-3xl font-bold mb-10 text-purple-400"><i class="fas fa-code mr-2"></i>Tecnologías</h2>
+        
+        <!-- Máscara para bordes difuminados -->
+        <div class="absolute top-0 bottom-0 left-0 w-20 bg-linear-to-r from-gray-900 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute top-0 bottom-0 right-0 w-20 bg-linear-to-l from-gray-900 to-transparent z-10 pointer-events-none"></div>
+
+        <div class="scroller relative z-0 w-full max-w-7xl mx-auto overflow-hidden">
+            <ul id="tech-list" class="tag-list flex gap-4 py-4 w-max animate-scroll">
+                <!-- Ítems de tecnología se inyectarán aquí -->
+                <li class="px-4 py-2 bg-gray-800 rounded-lg text-gray-400">Cargando...</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sección de Proyectos -->
+    <section id="projects" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-blue-400"><i class="fas fa-project-diagram mr-2"></i>Proyectos</h2>
+            
+            <div id="projects-grid" class="flex flex-col gap-24">
+                <!-- Tarjetas de Proyecto se inyectarán aquí -->
+                <div class="animate-pulse bg-gray-800 h-64 rounded-xl"></div>
+                <div class="animate-pulse bg-gray-800 h-64 rounded-xl"></div>
+                <div class="animate-pulse bg-gray-800 h-64 rounded-xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Certificados -->
+    <section id="certificates" class="py-20 px-4 bg-gray-800/30 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-blue-400"><i class="fas fa-certificate mr-2"></i>Certificados</h2>
+            
+            <div id="certificates-wrapper" class="relative group">
+                <!-- Botones de Navegación -->
+                <button id="prev-cert" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-gray-900/80 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg z-10 transition-all opacity-0 group-hover:opacity-100 disabled:opacity-30 disabled:cursor-not-allowed">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="next-cert" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-gray-900/80 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg z-10 transition-all opacity-0 group-hover:opacity-100 disabled:opacity-30 disabled:cursor-not-allowed">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Contenedor del Carrusel -->
+                <div class="overflow-hidden rounded-2xl shadow-2xl border border-gray-700 bg-gray-900">
+                    <div id="certificates-track" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Certificados inyectados aquí -->
+                    </div>
+                </div>
+                
+                <!-- Indicadores de Puntos -->
+                <div id="certificates-dots" class="flex justify-center gap-2 mt-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="py-8 text-center text-gray-500 bg-gray-900 border-t border-gray-800">
+        <p>&copy; 2026 Luca Ramirez. Barranqueras, Chaco, Argentina.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Fondo -->
+        <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" id="modal-backdrop"></div>
+
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-2xl bg-gray-800 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-3xl border border-gray-700">
+                
+                <!-- Botón de cierre -->
+                <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white z-10 bg-black/50 rounded-full p-2 transition-colors">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <div class="bg-gray-800 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start sm:flex-col w-full">
+                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
+                            <h3 class="text-2xl font-semibold leading-6 text-white mb-4" id="modal-title">Título del Proyecto</h3>
+                            
+                            <!-- Contenedor de Video/Imagen -->
+                            <div id="modal-media" class="w-full aspect-video bg-black rounded-lg mb-6 flex items-center justify-center overflow-hidden">
+                                <!-- Video o Imagen inyectados aquí -->
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4" id="modal-tags">
+                                <!-- Etiquetas inyectadas aquí -->
+                            </div>
+
+                            <div class="mt-2">
+                                <p id="modal-description" class="text-sm text-gray-300">
+                                    La descripción va aquí.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-700/50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 gap-3">
+                    <a id="modal-link" href="#" target="_blank" class="inline-flex w-full justify-center rounded-lg bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto transition-colors">
+                        Visitar Sitio <i class="fas fa-external-link-alt ml-2 mt-1"></i>
+                    </a>
+                    <a id="modal-repo" href="#" target="_blank" class="inline-flex w-full justify-center rounded-lg bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 sm:mt-0 sm:w-auto transition-colors">
+                        Ver Código <i class="fab fa-github ml-2 mt-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
-  
-  <main>
-    <h2 id="about-me">Sobre mí</h2>
-    <article class="about-me"> 
-      <p>¡Hola! Soy Luca Damian Ramirez, un apasionado desarrollador preparado para cualquier desafío. Actualmente estoy cursando la carrera de Ingeniería en Sistemas de Información en la Universidad Tecnológica Nacional (FRRE). Programo desde los 9 años de forma totalmente autodidacta, 6 años creando proyectos personales y otros 4 trabajando de forma freelancer.</p>
 
-      <h3>Tecnologías</h3>
-      <div class="tags">
-        <span class="tag js">
-          <i class="devicon-javascript-plain"></i>
-          JavaScript
-        </span>
-        <span class="tag ts">
-          <i class="devicon-typescript-plain"></i>
-          TypeScript
-        </span>
-        <span class="tag node">
-          <i class="devicon-nodejs-plain"></i>
-          Node.js
-        </span>
-        <span class="tag react">
-          <i class="devicon-react-plain"></i>
-          React.js
-        </span>
-        <span class="tag next">
-          <i class="devicon-nextjs-plain"></i>
-          Next.js
-        </span>
-        <span class="tag mongo">
-          <i class="devicon-mongodb-plain"></i>
-          Mongo DB
-        </span>
-        <span class="tag discord">
-          <i class="devicon-discordjs-plain"></i>
-          Discord.js
-        </span>
-        <span class="tag html">
-          <i class="devicon-html5-plain"></i>
-          HTML
-        </span>
-        <span class="tag css">
-          <i class="devicon-css3-plain"></i>
-          CSS
-        </span>
-        <span class="tag py">
-          <i class="devicon-python-plain"></i>
-          Python
-        </span>
-      </div>
-    </article>
-
-    <h2>Proyectos</h2>
-    <article class="card-container" id="projects-container" aria-live="polite" aria-busy="true">
-      <p class="loading-message">Cargando proyectos desde GitHub...</p>
-    </article>
-  </main>
-  
-  <footer>
-    <p>&copy; 2025 Lukitaz. Todos los derechos reservados.</p>
-  </footer>
-  
-  <script type="module" src="./src/js/scroll-effects.js"></script>
-  <script type="module" src="./src/js/github-projects.js"></script>
+    <!-- Scripts -->
+    <script type="module" src="./src/main.js"></script>
 </body>
 </html>

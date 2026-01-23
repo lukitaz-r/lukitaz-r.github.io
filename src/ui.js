@@ -1,6 +1,6 @@
 import { CONFIG } from './config.js';
 import { getReadme } from './api.js';
-import marked from 'marked';
+import { marked } from 'marked';
 
 const $ = (selector) => document.querySelector(selector);
 
@@ -251,9 +251,9 @@ async function openModal(repo) {
     const readmeContent = await getReadme(repo.owner.login, repo.name, repo.default_branch);
     
     if (readmeContent) {
-        // Usar marked para parsear markdown y aplicar clases de tipografía
+        // Usar marked para parsear markdown y aplicar clases de tipografía estilo GitHub
         descContainer.innerHTML = `
-            <div class="prose prose-invert prose-blue max-w-none">
+            <div class="markdown-body text-left p-4 rounded-lg">
                 ${marked.parse(readmeContent)}
             </div>
         `;

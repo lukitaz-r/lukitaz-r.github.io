@@ -40,89 +40,14 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* Deshabilitar selección globalmente */
-        *, *::before, *::after {
-            user-select: none;
-            -webkit-user-drag: none;
-        }
 
-        /* Re-habilitar selección para contenido significativo */
-        p, h1, h2, h3, span, .prose, #modal-description, #about-content {
-            user-select: text;
-        }
-
-        /* Asegurar que las imágenes no se puedan arrastrar para evitar efecto fantasma */
-        img {
-            pointer-events: none;
-        }
-
-        /* Permitir eventos de puntero en elementos interactivos pero mantenerlos no seleccionables */
-        a, button, .cursor-pointer {
-            pointer-events: auto;
-        }
-
-        /* Animación de Palabras Flotantes */
-        .floating-word {
-            position: absolute;
-            white-space: nowrap;
-            pointer-events: none;
-            user-select: none;
-            font-weight: bold;
-            opacity: 0; /* Empezar oculto */
-            z-index: 0;
-        }
-
-        @keyframes floatLeft {
-            0% { transform: translateX(100vw); opacity: 0; }
-            10% { opacity: 0.1; }
-            90% { opacity: 0.1; }
-            100% { transform: translateX(-100%); opacity: 0; }
-        }
-
-        @keyframes floatRight {
-            0% { transform: translateX(-100%); opacity: 0; }
-            10% { opacity: 0.1; }
-            90% { opacity: 0.1; }
-            100% { transform: translateX(100vw); opacity: 0; }
-        }
-
-        /* Cursor de Escritura */
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s step-end infinite;
-            color: #5c6ac4;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-    </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    animation: {
-                        'scroll': 'scroll 40s linear infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        scroll: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' }, // Mover 50% ya que duplicamos la lista
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" 
+    />
 </head>
 <body class="bg-[#1a1a23] z-0 text-white font-mono antialiased">
 
@@ -138,7 +63,7 @@
                 <h1 class="text-5xl md:text-7xl font-bold text-white mb-2">
                     <span id="developer-name" class="block text-blue-400 mt-2">Luca Ramirez</span>
                 </h1>
-                <h2 class="text-xl md:text-2xl text-blue-200/80 font-light">
+                <h2 class="text-xl md:text-2xl text-blue-200/80 font-light" aria-live="polite">
                     Desarrollador Full Stack
                 </h2>
                 
@@ -157,16 +82,16 @@
 
                  <!-- Enlaces Sociales -->
                  <div class="flex gap-6 justify-center md:justify-start pt-6 text-4xl text-gray-500">
-                    <a href="https://github.com/lukitaz-r" class="hover:text-white transition-colors"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/lukitaz-r/" class="hover:text-blue-400 transition-colors"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:lucadamianramirez10@gmail.com" class="hover:text-red-400 transition-colors"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/lukitaz-r" aria-label="Visitar perfil de GitHub" class="hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/lukitaz-r/" aria-label="Visitar perfil de LinkedIn" class="hover:text-blue-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:lucadamianramirez10@gmail.com" aria-label="Enviar correo electrónico" class="hover:text-red-400 transition-colors"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
 
             <!-- Derecha: Imagen de Perfil -->
             <div class="relative group">
                 <div class="absolute -inset-1 bg-linear-to-r from-blue-600 to-purple-600 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-                <img id="profile-image" src="./assets/placeholder-profile.png" alt="Perfil" class="relative rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-[#2d2d3a] shadow-2xl">
+                <img id="profile-image" src="./assets/placeholder-profile.png" alt="Foto de perfil de Luca Ramirez" class="relative rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-[#2d2d3a] shadow-2xl">
             </div>
         </div>
         
@@ -187,7 +112,7 @@
         </div>
     </section>
 
-    <!-- Sección de Tecnologías (Scroll Infinito) -->
+    <!-- Sección de Tecnologías -->
     <section id="technologies" class="py-16 bg-gray-900 overflow-hidden relative">
         <h2 class="text-center text-3xl font-bold mb-10 text-purple-400"><i class="fas fa-code mr-2"></i>Tecnologías</h2>
         
@@ -197,7 +122,6 @@
 
         <div class="scroller relative z-0 w-full max-w-7xl mx-auto overflow-hidden">
             <ul id="tech-list" class="tag-list flex gap-4 py-4 w-max animate-scroll">
-                <!-- Ítems de tecnología se inyectarán aquí -->
                 <li class="px-4 py-2 bg-gray-800 rounded-lg text-gray-400">Cargando...</li>
             </ul>
         </div>
@@ -245,7 +169,7 @@
     </section>
 
     <!-- Pie de Página -->
-    <footer class="py-8 text-center text-gray-500 bg-gray-900 border-t border-gray-800">
+    <footer class="py-8 text-center text-gray-400 bg-gray-900 border-t border-gray-800">
         <p>&copy; 2026 Luca Ramirez. Barranqueras, Chaco, Argentina.</p>
     </footer>
 
@@ -287,10 +211,10 @@
                     </div>
                 </div>
                 <div class="bg-gray-700/50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 gap-3">
-                    <a id="modal-link" href="#" target="_blank" class="inline-flex w-full justify-center rounded-lg bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto transition-colors">
+                    <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center rounded-lg bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto transition-colors">
                         Visitar Sitio <i class="fas fa-external-link-alt ml-2 mt-1"></i>
                     </a>
-                    <a id="modal-repo" href="#" target="_blank" class="inline-flex w-full justify-center rounded-lg bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 sm:mt-0 sm:w-auto transition-colors">
+                    <a id="modal-repo" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center rounded-lg bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 sm:mt-0 sm:w-auto transition-colors">
                         Ver Código <i class="fab fa-github ml-2 mt-1"></i>
                     </a>
                 </div>

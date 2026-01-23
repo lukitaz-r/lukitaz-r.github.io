@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-scroll: scroll 40s linear infinite;
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Animación de Palabras Flotantes */
+.floating-word {
+    position: absolute;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    font-weight: bold;
+    opacity: 0; /* Empezar oculto */
+    z-index: 0;
+}
+
+@keyframes floatLeft {
+    0% { transform: translateX(100vw); opacity: 0; }
+    10% { opacity: 0.1; }
+    90% { opacity: 0.1; }
+    100% { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes floatRight {
+    0% { transform: translateX(-100%); opacity: 0; }
+    10% { opacity: 0.1; }
+    90% { opacity: 0.1; }
+    100% { transform: translateX(100vw); opacity: 0; }
+}
+
+/* Cursor de Escritura */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #5c6ac4;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}

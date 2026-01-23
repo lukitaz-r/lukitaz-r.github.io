@@ -11,47 +11,47 @@ export function renderHeader(profile) {
 }
 
 const TECH_CONFIG = {
-    'javascript': { icon: 'fab fa-js', label: 'JavaScript', color: 'yellow' },
-    'js': { icon: 'fab fa-js', label: 'JavaScript', color: 'yellow' },
-    'typescript': { icon: 'fab fa-js-square', label: 'TypeScript', color: 'blue' },
-    'ts': { icon: 'fab fa-js-square', label: 'TypeScript', color: 'blue' },
-    'html': { icon: 'fab fa-html5', label: 'HTML5', color: 'orange' },
-    'html5': { icon: 'fab fa-html5', label: 'HTML5', color: 'orange' },
-    'css': { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'blue' },
-    'css3': { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'blue' },
-    'scss': { icon: 'fab fa-sass', label: 'Sass/SCSS', color: 'blue' },
-    'sass': { icon: 'fab fa-sass', label: 'Sass/SCSS', color: 'blue' },
-    'react': { icon: 'fab fa-react', label: 'React', color: 'blue' },
-    'reactjs': { icon: 'fab fa-react', label: 'React', color: 'blue' },
-    'vue': { icon: 'fab fa-vuejs', label: 'Vue.js', color: 'green' },
-    'vuejs': { icon: 'fab fa-vuejs', label: 'Vue.js', color: 'green' },
-    'angular': { icon: 'fab fa-angular', label: 'Angular', color: 'red' },
-    'node': { icon: 'fab fa-node-js', label: 'Node.js', color: 'green' },
-    'nodejs': { icon: 'fab fa-node-js', label: 'Node.js', color: 'green' },
-    'express': { icon: 'fas fa-server', label: 'Express.js', color: 'red' },
-    'python': { icon: 'fab fa-python', label: 'Python', color: 'blue' },
-    'py': { icon: 'fab fa-python', label: 'Python', color: 'blue' },
-    'java': { icon: 'fab fa-java', label: 'Java', color: 'gray' },
-    'php': { icon: 'fab fa-php', label: 'PHP', color: 'purple' },
-    'laravel': { icon: 'fab fa-laravel', label: 'Laravel', color: 'blue' },
-    'docker': { icon: 'fab fa-docker', label: 'Docker', color: 'blue' },
-    'kubernetes': { icon: 'fas fa-dharmachakra', label: 'Kubernetes', color: 'blue' },
-    'git': { icon: 'fab fa-git-alt', label: 'Git', color: 'blue' },
-    'github': { icon: 'fab fa-github', label: 'GitHub', color: 'gray' },
-    'database': { icon: 'fas fa-database', label: 'Databases', color: 'blue' },
-    'mysql': { icon: 'fas fa-database', label: 'MySQL', color: 'blue' },
-    'postgresql': { icon: 'fas fa-database', label: 'PostgreSQL', color: 'blue' },
-    'mongodb': { icon: 'fas fa-leaf', label: 'MongoDB', color: 'green' },
-    'firebase': { icon: 'fas fa-fire', label: 'Firebase', color: 'blue' },
-    'tailwind': { icon: 'fab fa-css3', label: 'Tailwind CSS', color: 'blue' },
-    'bootstrap': { icon: 'fab fa-bootstrap', label: 'Bootstrap', color: 'purple' },
-    'aws': { icon: 'fab fa-aws', label: 'AWS', color: 'orange' },
-    'nextjs': { icon: 'fas fa-n', label: 'Next.js', color: 'gray' },
-    'vite': { icon: 'fas fa-bolt', label: 'Vite', color: 'orange' },
-    'discord': { icon: 'fab fa-discord', label: 'Discord.js', color: 'blue' },
-    'discordjs': { icon: 'fab fa-discord', label: 'Discord.js', color: 'blue' },
-    'discord.js': { icon: 'fab fa-discord', label: 'Discord.js', color: 'blue' },
-    'rust': { icon: 'fab fa-rust', label: 'Rust', color: 'orange' },
+    'javascript': { icon: 'fab fa-js', label: 'JavaScript', color: 'text-yellow-400' },
+    'js': { icon: 'fab fa-js', label: 'JavaScript', color: 'text-yellow-400' },
+    'typescript': { icon: 'fab fa-js-square', label: 'TypeScript', color: 'text-blue-400' },
+    'ts': { icon: 'fab fa-js-square', label: 'TypeScript', color: 'text-blue-400' },
+    'html': { icon: 'fab fa-html5', label: 'HTML5', color: 'text-orange-400' },
+    'html5': { icon: 'fab fa-html5', label: 'HTML5', color: 'text-orange-400' },
+    'css': { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'text-blue-400' },
+    'css3': { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'text-blue-400' },
+    'scss': { icon: 'fab fa-sass', label: 'Sass/SCSS', color: 'text-blue-400' },
+    'sass': { icon: 'fab fa-sass', label: 'Sass/SCSS', color: 'text-blue-400' },
+    'react': { icon: 'fab fa-react', label: 'React', color: 'text-blue-400' },
+    'reactjs': { icon: 'fab fa-react', label: 'React', color: 'text-blue-400' },
+    'vue': { icon: 'fab fa-vuejs', label: 'Vue.js', color: 'text-green-400' },
+    'vuejs': { icon: 'fab fa-vuejs', label: 'Vue.js', color: 'text-green-400' },
+    'angular': { icon: 'fab fa-angular', label: 'Angular', color: 'text-red-400' },
+    'node': { icon: 'fab fa-node-js', label: 'Node.js', color: 'text-green-400' },
+    'nodejs': { icon: 'fab fa-node-js', label: 'Node.js', color: 'text-green-400' },
+    'express': { icon: 'fas fa-server', label: 'Express.js', color: 'text-red-400' },
+    'python': { icon: 'fab fa-python', label: 'Python', color: 'text-blue-400' },
+    'py': { icon: 'fab fa-python', label: 'Python', color: 'text-blue-400' },
+    'java': { icon: 'fab fa-java', label: 'Java', color: 'text-gray-400' },
+    'php': { icon: 'fab fa-php', label: 'PHP', color: 'text-purple-400' },
+    'laravel': { icon: 'fab fa-laravel', label: 'Laravel', color: 'text-blue-400' },
+    'docker': { icon: 'fab fa-docker', label: 'Docker', color: 'text-blue-400' },
+    'kubernetes': { icon: 'fas fa-dharmachakra', label: 'Kubernetes', color: 'text-blue-400' },
+    'git': { icon: 'fab fa-git-alt', label: 'Git', color: 'text-blue-400' },
+    'github': { icon: 'fab fa-github', label: 'GitHub', color: 'text-gray-400' },
+    'database': { icon: 'fas fa-database', label: 'Databases', color: 'text-blue-400' },
+    'mysql': { icon: 'fas fa-database', label: 'MySQL', color: 'text-blue-400' },
+    'postgresql': { icon: 'fas fa-database', label: 'PostgreSQL', color: 'text-blue-400' },
+    'mongodb': { icon: 'fas fa-leaf', label: 'MongoDB', color: 'text-green-400' },
+    'firebase': { icon: 'fas fa-fire', label: 'Firebase', color: 'text-blue-400' },
+    'tailwind': { icon: 'fab fa-css3', label: 'Tailwind CSS', color: 'text-blue-400' },
+    'bootstrap': { icon: 'fab fa-bootstrap', label: 'Bootstrap', color: 'text-purple-400' },
+    'aws': { icon: 'fab fa-aws', label: 'AWS', color: 'text-orange-400' },
+    'nextjs': { icon: 'fas fa-n', label: 'Next.js', color: 'text-gray-400' },
+    'vite': { icon: 'fas fa-bolt', label: 'Vite', color: 'text-orange-400' },
+    'discord': { icon: 'fab fa-discord', label: 'Discord.js', color: 'text-blue-400' },
+    'discordjs': { icon: 'fab fa-discord', label: 'Discord.js', color: 'text-blue-400' },
+    'discord.js': { icon: 'fab fa-discord', label: 'Discord.js', color: 'text-blue-400' },
+    'rust': { icon: 'fab fa-rust', label: 'Rust', color: 'text-orange-400' },
 };
 
 export function renderTechnologies(repos) {
@@ -73,7 +73,7 @@ export function renderTechnologies(repos) {
         return {
             label: config ? config.label : (topic.charAt(0).toUpperCase() + topic.slice(1)),
             icon: config ? config.icon : 'fas fa-code',
-            color: config ? config.color : 'orange'
+            color: config ? config.color : 'text-orange-400'
         };
     });
 
@@ -96,7 +96,7 @@ export function renderTechnologies(repos) {
     // Duplicar la lista para un scroll infinito fluido
     const items = [...uniqueTechs, ...uniqueTechs].map(tech => 
         `<li class="px-6 py-2 bg-[#1a1a23] border border-blue-500/30 text-blue-200 rounded-full font-medium whitespace-nowrap shadow-lg flex items-center gap-2">
-            <i class="${tech.icon} text-${tech.color}-400 text-lg"></i> ${tech.label}
+            <i class="${tech.icon} ${tech.color} text-lg"></i> ${tech.label}
         </li>`
     ).join('');
     
@@ -118,7 +118,7 @@ export function renderProjects(repos) {
         return {
             label: config ? config.label : (topic.charAt(0).toUpperCase() + topic.slice(1)),
             icon: config ? config.icon : 'fas fa-code',
-            color: config ? config.color : 'blue' // Color por defecto
+            color: config ? config.color : 'text-blue-400' // Color por defecto
         };
     };
 
@@ -136,7 +136,7 @@ export function renderProjects(repos) {
         
         const img = document.createElement('img');
         img.src = repo.portfolio.thumbnail;
-        img.alt = repo.name;
+        img.alt = 'Vista previa del proyecto ' + repo.name;
         img.className = 'w-full rounded-xl shadow-2xl border border-gray-700/50 transform transition-transform duration-500 group-hover:scale-[1.02] group-hover:rotate-1';
         img.onerror = function() {
             this.onerror = null;
@@ -173,7 +173,7 @@ export function renderProjects(repos) {
             <div class="flex flex-wrap gap-3 py-4">
                 ${displayTopics.map(tech => `
                     <div class="flex items-center gap-2 text-sm text-gray-300 bg-[#252530] px-3 py-1.5 rounded-md border border-gray-700 hover:border-blue-500/50 transition-colors">
-                        <i class="${tech.icon} text-${tech.color}-400"></i>
+                        <i class="${tech.icon} ${tech.color}"></i>
                         ${tech.label}
                     </div>
                 `).join('')}
@@ -181,11 +181,11 @@ export function renderProjects(repos) {
 
             <div class="flex gap-4 pt-2">
                 ${repo.homepage ? `
-                    <a href="${repo.homepage}" target="_blank" class="px-6 py-2 bg-[#5c6ac4] hover:bg-[#4f5b93] text-white rounded-md font-semibold transition-all shadow-lg flex items-center gap-2">
+                    <a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" class="px-6 py-2 bg-[#5c6ac4] hover:bg-[#4f5b93] text-white rounded-md font-semibold transition-all shadow-lg flex items-center gap-2">
                         <i class="fas fa-play text-xs"></i> Ver en acción
                     </a>
                 ` : ''}
-                <a href="${repo.html_url}" target="_blank" class="px-6 py-2 bg-transparent border border-gray-600 text-gray-400 hover:text-white hover:border-white rounded-md font-semibold transition-all flex items-center gap-2">
+                <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="px-6 py-2 bg-transparent border border-gray-600 text-gray-400 hover:text-white hover:border-white rounded-md font-semibold transition-all flex items-center gap-2">
                     <i class="fab fa-github"></i> Ver código
                 </a>
                  <button class="px-4 py-2 text-gray-500 hover:text-orange-400 transition-colors" onclick="document.dispatchEvent(new CustomEvent('open-modal', {detail: '${repo.name}'}))">

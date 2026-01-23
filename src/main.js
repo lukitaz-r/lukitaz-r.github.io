@@ -1,3 +1,4 @@
+import './style.css';
 import { getUserProfile, getRepositories } from './api.js';
 import { renderHeader, renderTechnologies, renderProjects, initHeroAnimation, initTypewriter, renderCertificates } from './ui.js';
 

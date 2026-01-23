@@ -1,5 +1,6 @@
 import { CONFIG } from './config.js';
 import { getReadme } from './api.js';
+import marked from 'marked';
 
 const $ = (selector) => document.querySelector(selector);
 
